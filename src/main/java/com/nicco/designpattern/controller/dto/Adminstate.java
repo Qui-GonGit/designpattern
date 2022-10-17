@@ -1,21 +1,20 @@
 package com.nicco.designpattern.controller.dto;
 
-public class ReviewerState implements StateDocument {
-
-	private String nameState = "Reviewer";
+public class Adminstate implements StateDocument {
+	private String nameState = "Administrator";
 	@Override
 	public String write() {
-		return "you can't write the document";
+		return "you can't write";
 	}
 
 	@Override
 	public String read() {
-		return "document read";
+		return "you can read";
 	}
 
 	@Override
 	public String send() {
-		return "you can't send";
+		return "you can send";
 	}
 
 	@Override
@@ -25,19 +24,17 @@ public class ReviewerState implements StateDocument {
 
 	@Override
 	public void nextState(Document doc) {
-		doc.setState(new Adminstate());
+		
 	}
 
 	@Override
 	public void prevState(Document doc) {
-		doc.setState(new ClientState());
+		doc.setState(new ReviewerState());
 	}
 
 	@Override
 	public String actualState() {
 		return "the actual state is " + nameState;
 	}
-
-	
 
 }

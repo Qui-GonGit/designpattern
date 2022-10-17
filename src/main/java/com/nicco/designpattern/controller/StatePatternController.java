@@ -5,10 +5,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nicco.designpattern.controller.dto.Archive;
-import com.nicco.designpattern.controller.dto.Document;
 import com.nicco.designpattern.controller.dto.RequestDocument;
-import com.nicco.designpattern.controller.dto.RequestMessage;
 
 import io.swagger.annotations.ApiOperation;
 
@@ -18,11 +15,7 @@ public class StatePatternController {
 	@Autowired
 	private StateService stateService;
 
-//	@PostMapping("/get-document-state")
-//	@ApiOperation(value="get actual document state", notes="get document state")
-//	public String statePatternDocumentState(@RequestBody RequestMessage request) {
-//		return stateService.getDocument().getState().actualState();
-//	}
+
 	@PostMapping("/init-document")
 	@ApiOperation(value = "init new document", notes = "create a new document")
 	public String statePatternInitDocument(@RequestBody RequestDocument request) {

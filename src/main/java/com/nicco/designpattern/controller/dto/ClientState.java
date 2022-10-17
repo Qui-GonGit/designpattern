@@ -1,7 +1,5 @@
 package com.nicco.designpattern.controller.dto;
 
-import com.fasterxml.jackson.core.sym.Name;
-
 public class ClientState implements StateDocument {
 	
 	private String nameState = "Client";
