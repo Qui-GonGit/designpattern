@@ -1,4 +1,4 @@
-package com.nicco.designpattern.controller.dto;
+package com.nicco.designpattern.service.statepattern;
 
 public class ReviewerState implements StateDocument {
 

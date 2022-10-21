@@ -1,8 +1,6 @@
-package com.nicco.designpattern.controller;
+package com.nicco.designpattern.service.statepattern;
 
 import org.springframework.stereotype.Service;
-
-import com.nicco.designpattern.controller.dto.Archive;
 @Service
 public class StateService {
 	public Archive getArchive() {

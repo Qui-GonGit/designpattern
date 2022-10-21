@@ -5,7 +5,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nicco.designpattern.controller.dto.RequestDocument;
+import com.nicco.designpattern.service.statepattern.RequestDocument;
+import com.nicco.designpattern.service.statepattern.StateService;
+import com.nicco.designpattern.service.statepattern.exception.StateException;
 
 import io.swagger.annotations.ApiOperation;
 
@@ -25,13 +27,13 @@ public class StatePatternController {
 
 	@PostMapping("/set-next-state")
 	@ApiOperation(value = "init new document", notes = "set next state to document")
-	public String setNextState() {
+	public String setNextState() throws StateException {
 		stateService.getArchive().getDocument().setNextState();
 		return "OK : " + stateService.getArchive().getDocument().getState().actualState();
 	}
 	@PostMapping("/set-prev-state")
 	@ApiOperation(value = "init new document", notes = "set next state to document")
-	public String setPrevState() {
+	public String setPrevState() throws StateException {
 		stateService.getArchive().getDocument().setPrevState();
 		return stateService.getArchive().getDocument().getState().actualState();
 	}

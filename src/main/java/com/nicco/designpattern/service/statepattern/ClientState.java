@@ -1,4 +1,6 @@
-package com.nicco.designpattern.controller.dto;
+package com.nicco.designpattern.service.statepattern;
+
+import com.nicco.designpattern.service.statepattern.exception.StateException;
 
 public class ClientState implements StateDocument {
 	
@@ -29,8 +31,8 @@ public class ClientState implements StateDocument {
 	}
 
 	@Override
-	public void prevState(Document doc) {
-		System.out.println("the document can't set a old state");		
+	public void prevState(Document doc) throws StateException {
+		throw new StateException("You can't set prev state");
 	}
 
 	@Override

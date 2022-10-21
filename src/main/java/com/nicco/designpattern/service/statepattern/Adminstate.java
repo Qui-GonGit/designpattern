@@ -1,4 +1,6 @@
-package com.nicco.designpattern.controller.dto;
+package com.nicco.designpattern.service.statepattern;
+
+import com.nicco.designpattern.service.statepattern.exception.StateException;
 
 public class Adminstate implements StateDocument {
 	private String nameState = "Administrator";
@@ -23,8 +25,8 @@ public class Adminstate implements StateDocument {
 	}
 
 	@Override
-	public void nextState(Document doc) {
-		
+	public void nextState(Document doc) throws StateException {
+		throw new StateException("You can't set next state");
 	}
 
 	@Override

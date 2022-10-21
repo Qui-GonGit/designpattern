@@ -1,6 +1,7 @@
-package com.nicco.designpattern.controller.dto;
+package com.nicco.designpattern.service.statepattern;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.nicco.designpattern.service.statepattern.exception.StateException;
 
 public class Document {
 	private String nome;
@@ -15,11 +16,11 @@ public class Document {
 		return this.state;
 	}
 	@JsonIgnore
-	public void setNextState() {
+	public void setNextState() throws StateException {
 		this.state.nextState(this);
 	}
 	@JsonIgnore
-	public void setPrevState() {
+	public void setPrevState() throws StateException {
 		this.state.prevState(this);
 	}
 	@JsonIgnore
