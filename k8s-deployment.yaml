@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: design-pattern-k8
+spec:
+  selector:
+    matchLabels:
+      app: design-pattern-k8
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: design-pattern-k8
+    spec:
+      containers:
+        - name: design-pattern-k8
+          image: design-pattern-k8:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 9090
+     

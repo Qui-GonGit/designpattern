@@ -1,5 +1,8 @@
 package com.nicco.designpattern.service.chainpattern;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class ChainService {
 	static AbstractLogger logger;
 	public static AbstractLogger getChainOfLoggers() {

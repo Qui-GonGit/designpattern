@@ -25,7 +25,7 @@ public class ReviewerState implements StateDocument {
 
 	@Override
 	public void nextState(Document doc) {
-		doc.setState(new Adminstate());
+		doc.setState(new AdminState());
 	}
 
 	@Override

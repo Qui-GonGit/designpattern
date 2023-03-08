@@ -2,7 +2,7 @@ package com.nicco.designpattern.service.statepattern;
 
 import com.nicco.designpattern.service.statepattern.exception.StateException;
 
-public class Adminstate implements StateDocument {
+public class AdminState implements StateDocument {
 	private String nameState = "Administrator";
 	@Override
 	public String write() {
