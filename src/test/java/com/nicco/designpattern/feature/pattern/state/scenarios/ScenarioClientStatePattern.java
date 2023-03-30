@@ -9,27 +9,25 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class ScenarioStatePattern {
+public class ScenarioClientStatePattern {
 
-	private FeatureConfigStep featureConfigStep;
-	private Archive archive;
+	public Archive archive;
 
-	public ScenarioStatePattern(FeatureConfigStep featureConfigStep) {
-		this.featureConfigStep = featureConfigStep;
+	public ScenarioClientStatePattern(FeatureConfigStep featureConfigStep) {
+		this.archive = featureConfigStep.stateService.getArchive();
 	}
 
-	@Given("document from archive with name {string}")
+	@Given("^document from archive with name ([a-zA-Z]{4})$")
 	public void given_document_from_archive(String string) {
-		this.archive = this.featureConfigStep.stateService.getArchive();
 		this.archive.getDocument().setNome(string);
 	}
 
-	@When("the document is {string} State and user try to send it")
+	@When("^the document is (Client) State and user try to send it$")
 	public void when_document_is_client_state(String string) {
 		assertEquals("the actual state is " + string, this.archive.getDocument().getState().actualState());
 	}
 
-	@Then("retreive the message : {string}")
+	@Then("^retreive the message : (you can't send)$")
 	public void then_document_is_client_state(String string) {
 		assertEquals(string, this.archive.getDocument().getState().send());
 	}
